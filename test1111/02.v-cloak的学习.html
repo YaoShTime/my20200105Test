@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <p v-cloak>{{msg}}</p>
+        <h4 v-text="">111</h4>
+        <!-- 默认v-text是没有闪烁问题的 -->
+        <p>=================================</p>
+        <div>{{msg2}}</div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+        <input type="button" value="这是一个按钮" v-bind:title="msg + 123"/>
+        <input type="button" value="这是一个按钮" v-bind:title="msg + aaa"/>
+        <input type="button" value="这是一个按钮" v-bind:title="msg + 'aaa'"/>
+        <!-- <input type="button" value="这是一个新按钮" v-on:click="alert('1111111')"/> -->
+        <input type = "button" value="按钮" v-on:click="show">
+        <input type = "button" value="按钮" v-on:mouseover="show">
+    </div>
+
+    
+    <script src="lib/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                msg:"asd",
+                msg2:"<h1>我是谁！！！！</h1>"
+            },
+            methods:{ //这个methods里面定义了当前Vue实例所有可用的方法
+                show:function(){
+                    alert('哈哈哈')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
